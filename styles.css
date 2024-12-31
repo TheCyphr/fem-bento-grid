@@ -1,0 +1,241 @@
+@font-face {
+    font-family: DMSans;
+    src: url(assets/fonts/DMSans-VariableFont_opsz,wght.ttf) format("truetype");
+}
+
+@layer base {
+    :root {
+        --purple-100: hsl(254, 88%, 90%);
+        --purple-500: hsl(256, 67%, 59%);
+        --yellow-100: hsl(31, 66%, 93%);
+        --yellow-500: hsl(39, 100%, 71%);
+        --white: hsl(0, 0%, 100%);
+        --black: hsl(0, 0%, 7%);
+    }
+
+    h1, h2, h3, h4, h5, h6, p {
+        margin: 0;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: 550;
+        letter-spacing: -2px;
+    }
+
+    h1 {
+        font-size: 3.25rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    body {
+        margin: 0;
+        font-family: DMSans, sans-serif;
+        line-height: 1;
+        min-height: 100vh;
+        background-color: hsl(0, 0%, 95%);
+    }
+}
+
+@layer components {
+    .grid {
+        display: grid;
+        grid-template-areas:
+                "five-stars"
+                "multiple-platforms"
+                "consistent-schedule"
+                "schedule-posts"
+                "grow-followers"
+                "audience-growth"
+                "create-post"
+                "ai-content";
+        gap: 1.9rem;
+        margin: 0 auto;
+        max-width: 62rem;
+        padding: 2rem 1rem;
+
+        :where(& > div) {
+            border-radius: 10px;
+            padding: 1.5rem;
+            overflow: clip;
+        }
+
+        @media (width > 375px){
+            grid-template: repeat(16, 1fr) / repeat(4, 1fr);
+            grid-template-areas:
+            "create-post five-stars five-stars schedule-posts"
+            "create-post five-stars five-stars schedule-posts"
+            "create-post five-stars five-stars schedule-posts"
+            "create-post five-stars five-stars schedule-posts"
+            "create-post five-stars five-stars schedule-posts"
+            "create-post five-stars five-stars schedule-posts"
+            "create-post multiple-platforms consistent-schedule schedule-posts"
+            "create-post multiple-platforms consistent-schedule schedule-posts"
+            "ai-content multiple-platforms consistent-schedule schedule-posts"
+            "ai-content multiple-platforms consistent-schedule schedule-posts"
+            "ai-content multiple-platforms consistent-schedule schedule-posts"
+            "ai-content audience-growth grow-followers grow-followers"
+            "ai-content audience-growth grow-followers grow-followers"
+            "ai-content audience-growth grow-followers grow-followers"
+            "ai-content audience-growth grow-followers grow-followers"
+            "ai-content audience-growth grow-followers grow-followers";
+            max-height: 50rem;
+            padding-block: 5vh;
+        }
+    }
+
+    .create-post {
+        grid-area: create-post;
+        background-color: var(--yellow-100);
+        padding-block: 5rem;
+
+        & h2 {
+            font-size: 2.15rem;
+            padding-block-end: 1.25rem;
+        }
+
+        & img {
+            max-width: 95%;
+        }
+    }
+
+    .ai-content {
+        grid-area: ai-content;
+        background-color: var(--yellow-500);
+
+        & h2 {
+            font-size: 2.15rem;
+            padding-block-end: 2.5rem;
+        }
+
+        & img {
+            max-width: 100%;
+        }
+    }
+
+    .five-stars {
+        grid-area: five-stars;
+        background-color: var(--purple-500);
+        color: var(--white);
+        font-size: 3.5rem;
+        padding: 3rem 1.5rem;
+        text-align: center;
+        font-weight: 500;
+
+        & .review-wrapper {
+            padding-block-start: 0.1rem;
+        }
+
+        & .text-sub  {
+            font-size: 0.28em;
+            opacity: 0.75;
+        }
+
+        & img {
+            max-width: 10rem;
+        }
+    }
+
+    .multiple-platforms {
+        grid-area: multiple-platforms;
+        background-color: var(--white);
+
+        & img {
+            border-radius: 32px;
+            max-width: 100%;
+            padding-block-end: 0.5rem;
+
+            @media (width > 375px){
+                max-width: 150%;
+                padding-block-end: 1rem;
+            }
+        }
+    }
+
+    .consistent-schedule {
+        grid-area: consistent-schedule;
+        background-color: var(--yellow-500);
+
+        & img {
+            max-width: 70%;
+            padding-block-start: 1rem;
+
+
+            @media (width > 375px){
+                max-width: 100%;
+            }
+        }
+    }
+
+    .audience-growth {
+        grid-area: audience-growth;
+        background-color: var(--white);
+
+        & h1 {
+            padding-block-end: 1rem;
+        }
+
+        & img {
+            padding-block-start: 2.25rem;
+            max-width: 80%;
+        }
+    }
+
+    .grow-followers {
+        grid-area: grow-followers;
+        background-color: var(--purple-500);
+        color: var(--white);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+
+        & h2 {
+            align-self: center;
+            font-size: 2.15rem;
+        }
+
+        & img {
+            max-width: 80%;
+        }
+
+        @media (width > 375px){
+            flex-direction: row;
+            align-items: revert;
+            text-align: revert;
+        }
+    }
+
+    .schedule-posts {
+        grid-area: schedule-posts;
+        background-color: var(--purple-100);
+        padding-block: 2rem;
+        text-align: center;
+
+        & img {
+            max-width: 100%;
+            padding-block: 1.25rem;
+        }
+
+        @media (width > 375px){
+            text-align: revert;
+
+            & img {
+                max-width: 180%;
+            }
+        }
+    }
+}
+
+@layer utilities {
+    .text-purple {
+        color: var(--purple-500);
+    }
+
+    .text-yellow {
+        color: var(--yellow-500);
+    }
+}
